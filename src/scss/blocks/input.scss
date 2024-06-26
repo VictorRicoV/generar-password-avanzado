@@ -1,0 +1,38 @@
+.input-range {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  width: 100%;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  background-color: var(--primary-color);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.11);
+  border-radius: 0.5rem;
+}
+
+.input-password {
+  height: 60px;
+  width: 100%;
+  margin-bottom: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  color: inherit;
+  background-color: var(--primary-color);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.11);
+  text-align: center;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.range {
+  width: 80%;
+  height: 3px;
+  accent-color: var(--accent-color);
+}
+.length {
+  display: block;
+  letter-spacing: 4px;
+  margin-bottom: 1rem;
+}
