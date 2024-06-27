@@ -1,29 +1,42 @@
 // El styles lo importamos aquí para que se encargue Vite de compilar todo
-import "../scss/styles.scss";
+import '../scss/styles.scss';
 
-const labelElement = document.getElementById("label");
-const rangeElement = document.getElementById("range");
-const buttonElement = document.getElementById("generator");
-const finishedPassword = document.getElementById("password");
-const uppercaseCheckbox = document.getElementById("uppercase");
-const lowercaseCheckbox = document.getElementById("lowercase");
-const numbersCheckbox = document.getElementById("numbers");
-const symbolsCheckbox = document.getElementById("symbols");
+const labelElement = document.getElementById('label');
+const rangeElement = document.getElementById('range');
+const buttonElement = document.getElementById('generator');
+const finishedPassword = document.getElementById('password');
+const uppercaseCheckbox = document.getElementById('uppercase');
+const lowercaseCheckbox = document.getElementById('lowercase');
+const numbersCheckbox = document.getElementById('numbers');
+const symbolsCheckbox = document.getElementById('symbols');
 
 //const characterAvailable = "";
+
+const buttonActive = () => {
+  const inputsElements = document.querySelectorAll('input:checked');
+  if (inputsElements.length > 0) {
+    buttonElement.disabled = false;
+  } else {
+    buttonElement.disabled = true;
+  }
+};
+uppercaseCheckbox.addEventListener('change', buttonActive);
+lowercaseCheckbox.addEventListener('change', buttonActive);
+numbersCheckbox.addEventListener('change', buttonActive);
+symbolsCheckbox.addEventListener('change', buttonActive);
 
 const lengthValue = () => {
   labelElement.textContent = `LENGTH: ${rangeElement.value}`;
 };
 
-rangeElement.addEventListener("input", lengthValue);
+rangeElement.addEventListener('input', lengthValue);
 
 const password = () => {
-  let selectedCharacters = "";
-  const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const lowercase = "abcdefghijklmnopqrstuvwxyz";
-  const numbers = "0123456789";
-  const symbols = "!@#$%^&*()_+-={}[]:;<>,.?/";
+  let selectedCharacters = '';
+  const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+  const numbers = '0123456789';
+  const symbols = '!@#$%^&*()_+-={}[]:;<>,.?/';
 
   if (uppercaseCheckbox.checked) {
     selectedCharacters += uppercase;
@@ -38,7 +51,7 @@ const password = () => {
     selectedCharacters += symbols;
   }
 
-  let randomPassword = "";
+  let randomPassword = '';
   for (let i = 0; i < rangeElement.value; i++) {
     const randomNumber = Math.floor(Math.random() * selectedCharacters.length);
     randomPassword += selectedCharacters.charAt(randomNumber);
@@ -46,4 +59,4 @@ const password = () => {
   finishedPassword.value = randomPassword;
 };
 
-buttonElement.addEventListener("click", password);
+buttonElement.addEventListener('click', password);

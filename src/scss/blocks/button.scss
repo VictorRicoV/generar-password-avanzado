@@ -4,15 +4,21 @@
   width: 100%;
   border: none;
   color: inherit;
-  background-color: var(--cta-color);
+  background-image: linear-gradient(to right, #7944e7, #8300ab);
   box-shadow: 0 4px 4px var(--primary-shadow);
   border-radius: 0.5rem;
   font-size: 1rem;
   letter-spacing: 3px;
   cursor: pointer;
   transition: scale 0.2s, background-color 0.2s;
-  @include hover {
-    background-color: var(--cta-color-hover);
-    scale: 0.95;
+  &:disabled {
+    background-image: none;
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  &:not(.button:disabled) {
+    @include hover {
+      scale: 0.95;
+    }
   }
 }

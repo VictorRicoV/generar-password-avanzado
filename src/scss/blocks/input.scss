@@ -5,7 +5,7 @@
   height: 60px;
   width: 100%;
   padding: 1.25rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   background-color: var(--primary-color);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.11);
   border-radius: 0.5rem;
@@ -35,4 +35,48 @@
   display: block;
   letter-spacing: 4px;
   margin-bottom: 1rem;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  width: 100%;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  background-color: var(--primary-color);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.11);
+  border-radius: 0.5rem;
+}
+.option-input {
+  display: none;
+}
+
+.option-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 75px;
+  height: 40px;
+  border-radius: 2rem;
+  background-color: grey;
+  transition: background-color 0.3s;
+}
+.option-label::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: transform 0.3s;
+}
+
+.option-input:checked + .option-label {
+  background-color: #7400e4;
+}
+.option-input:checked + .option-label::after {
+  transform: translateX(100%);
 }
